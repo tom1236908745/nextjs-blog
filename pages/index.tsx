@@ -23,8 +23,9 @@ export default function Home({
       <section className={utilStyles.headingMd}>
         <p>個人テックブログです。内容に語弊がある場合、<strong>優しく</strong>教えて下さい！</p>
         <p>
-          フロントメインの内容をメインで発信して予定です！
+          フロントメインの内容をメインで発信していく予定です！
         </p>
+        <p><s>コードの部分、見にく</s></p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
