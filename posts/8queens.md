@@ -59,3 +59,22 @@ date: '2021-07-25'
 2. `col[N]`: col[x]がNOT_FREEで無かったら、列xは攻撃されている。
 3. `dpos[2N-1]`: dropsがNOT_FREEで無かったら、左下方向の列xは攻撃されている。
 4. `dneg[2N-1]`: dropsがNOT_FREEで無かったら、右下方向の列xは攻撃されている。
+
+*疑似コード*
+```疑似コード
+def PutQueen(row):
+ for col = 0 to n
+	if column[col] = available and leftDiag[row+col] =
+  available and rightDiag[row-col+n-1] = available:
+		positionInRow[row] = col
+		column[col] = not available
+		leftDiag[row+col] = not available
+		rightDiag[row-col+n-1] = not available
+		if row < n-1:
+			PutQueen (row+1)
+		else:
+			print "solution found"
+		column[col] = available
+		leftDiag[row+col] = available
+		rightDiag[row-col+n-1]= available
+```
