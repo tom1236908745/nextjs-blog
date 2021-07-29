@@ -6,7 +6,7 @@ date: 'year-month-day'
 # Vue, Reactでそれぞれ配列を回すときの違い。
 ---
 
-*配列、オブジェクトを回す時、Vueではv-forを使うのに対し、Reactではmapやforeach (reduce, for)などを使う。*
+*配列、オブジェクトを回す時、Vueではv-forを使うのに対し、Reactではmapやforeach (reduce, for)などを使う。もちろん、Vueでもmapなどを使うことはできる。*
 
 まず、Vueから
 
