@@ -1,5 +1,5 @@
 ---
-title: 'v-for or map'
+title: 'v-for-or-map'
 date: '2021-07-29'
 ---
 
