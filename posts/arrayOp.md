@@ -1,6 +1,6 @@
 ---
 title: 'v-for or map'
-date: 'year-month-day'
+date: '2021-07-29'
 ---
 
 # Vue, Reactでそれぞれ配列を回すときの違い。
