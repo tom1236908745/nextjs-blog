@@ -20,7 +20,7 @@ export default function Layout({
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Tech BOlog with Next.js"
+          content="Tech Blog with Next.js"
         />
         <meta
           property="og:image"

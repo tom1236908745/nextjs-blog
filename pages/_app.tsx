@@ -1,4 +1,4 @@
-import '../styles/global.css'
+import '../styles/global.css' // global.cssはこのファイルからしかインポート出来ない
 import { AppProps } from 'next/app'
 
 function App({ Component, pageProps }: AppProps) {
