@@ -15,23 +15,21 @@ export function getSortedMembers() {
 
     return { name };
   });
-  return allPostsDirectory;
-  /* return allPostsDirectory.sort((a, b) => {
-    a.name = a.toString().toLowerCase();
-    b.name = b.toString().toLowerCase();
+
+  return allPostsDirectory.sort((a, b) => {
+    
     if (a.name < b.name) {
       return -1;
     } else if (a.name > b.name) {
       return 1;
     }
     return 0;
-  }); */
+  });
 }
 
 export function getAllMembers() {
   const directoryNames = fs.readdirSync(memberDirectory);
   return directoryNames.map((directoryName) => {
-    // posts/[member]
     return {
       params: {
         name: directoryName,
@@ -78,7 +76,7 @@ export function getAllPostIds() {
     const namePath = path.join(memberDirectory, name);
     const fileNames = fs.readdirSync(namePath);
     fileNames.forEach((fileName) => {
-      var id = fileName.replace(/\.md$/, "");
+      var id = path.parse(fileName).name;
       
       paths.push({ params: {name: name, id: id } });
     });

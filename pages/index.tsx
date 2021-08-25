@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import { getSortedMembers } from "../lib/members";
+import { getSortedMembers } from "../lib/utils";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 
@@ -13,7 +13,6 @@ export default function Post({
     name: string;
   }[];
 }) {
-  
   return (
     <Layout home>
       <Head>
