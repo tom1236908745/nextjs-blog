@@ -40,7 +40,7 @@ export function getAllMembers() {
   });
 }
 
-export function getSortedPostsData(name: string) {
+export function getSortedPostsData(name: any) {
   const postsDirectory = path.join(memberDirectory, name);
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -71,26 +71,25 @@ export function getSortedPostsData(name: string) {
   });
 }
 export function getAllPostIds() {
-  const directoryNames = fs.readdirSync(memberDirectory);
-  const arrs = directoryNames.map((directoryName) => {
-    // posts/[member]
-    const files = fs.readdirSync(directoryName);
-    return files.map((file) => {
-      return {
-        params: {
-          id: file.replace(/\.md$/, ""),
-        },
-      };
+  const paths = [];
+  
+  const names = fs.readdirSync(memberDirectory);
+  names.map((name) => {
+    const namePath = path.join(memberDirectory, name);
+    const fileNames = fs.readdirSync(namePath);
+    fileNames.forEach((fileName) => {
+      var id = fileName.replace(/\.md$/, "");
+      
+      paths.push({ params: {name: name, id: id } });
     });
   });
-  const arrPaths: string[] = [];
-  arrs.map((files)=>{
-    
-  })
+  return paths;
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(memberDirectory, `${id}.md`);
+export async function getPostData(params: any) {
+  const id = params.id;
+  const name = params.name;
+  const fullPath = path.join(memberDirectory, name, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   // Use gray-matter to parse the post metadata section
