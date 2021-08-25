@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../../../components/layout";
 import utilStyles from "../../../styles/utils.module.css";
-import { getSortedPostsData, getAllMembers } from "../../../lib/members";
+import { getSortedPostsData, getAllMembers } from "../../../lib/utils";
 import Link from "next/link";
 import Date from "../../../components/date";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -19,13 +19,14 @@ export default function Home({
 }) {
   const router = useRouter();
   const { name } = router.query;
+  
   return (
-    <Layout home>
+    <Layout name={name}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>{name}</p>
+        <p>ブログ by {name}</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
