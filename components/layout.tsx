@@ -1,27 +1,27 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
-const name = 'tomoki nakayama'
-export const siteTitle = 'N Tech Blog'
+export const siteTitle = "N Tech Blog";
 
 export default function Layout({
   children,
-  home
+  home,
+  id,
+  name,
 }: {
-  children: React.ReactNode
-  home?: boolean
+  children: React.ReactNode;
+  home?: boolean;
+  id?: boolean;
+  name?: any;
 }) {
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Tech Blog with Next.js"
-        />
+        <meta name="description" content="Tech Blog with Next.js" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -42,7 +42,7 @@ export default function Layout({
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            
           </>
         ) : (
           <>
@@ -60,13 +60,20 @@ export default function Layout({
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className={utilStyles.colorInherit}>{name} blog page</a>
               </Link>
             </h2>
           </>
         )}
       </header>
       <main>{children}</main>
+      {id && (
+        <div className={styles.backToHome}>
+          <Link href={`/posts/${name}`}>
+            <a>← Back to {name} blog page</a>
+          </Link>
+        </div>
+      )}
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
@@ -75,5 +82,5 @@ export default function Layout({
         </div>
       )}
     </div>
-  )
+  );
 }
