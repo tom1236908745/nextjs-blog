@@ -105,10 +105,46 @@ v-model="変数"
   },
 });
 </script>
+```
 
+---
+## v-for
 
+v-forは、配列などの複数のデータを繰り返し表示させるときによく使うディレクティブです。
 
+### 使いかた
 
+基本的な使い方は、タグの中に
+```
+v-for="要素名 in 配列"
+```
+と書くことで配列の要素を列挙できます。なお、v-forには一意なkey属性を与えることが推奨されているようです。
+
+以下、例:配列の要素を列挙する
+```html
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js'></script>
+<div id="app">
+	<p> user list <p>
+  <ul>
+		<li v-for="user in users" v-bind:key="user.id">
+			<!-- usersの要素にuserを当てて、user.nameを要素数分表示させる。keyには3桁の数字user.idを当てている -->
+			{{user.name}}
+		</li>
+	</ul>
+</div>
+<script>
+	var app=new Vue({
+		el: "#app",
+		data: {
+			users: [
+				{id:101, name:"Alice"},
+				{id:102, name:"Bob"},
+				{id:103, name:"Carol"},
+			],
+		}
+	})
+</script>
+```
 
 
 
@@ -164,3 +200,4 @@ v-model="変数"
 1. https://v3.ja.vuejs.org/
 2. https://fujiya228.com/categories/vuejs
 3. https://noumenon-th.net/programming/javascript/
+4. https://www.tohoho-web.com/ex/vuejs.html
